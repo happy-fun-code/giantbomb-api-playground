@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import com.happyfuncode.giantbomb.GameAPITest;
-
 public class Constants {
 
 	public static final String API_KEY = Constants.loadAPIKey();
@@ -14,7 +12,7 @@ public class Constants {
 		Properties properties = new Properties();
 		InputStream is = null;
 		try {
-			is = GameAPITest.class.getClassLoader().getResourceAsStream(
+			is = Constants.class.getClassLoader().getResourceAsStream(
 					"giantbomb.properties");
 			properties.load(is);
 		} catch (IOException e) {
