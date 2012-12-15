@@ -7,14 +7,15 @@ import com.google.gson.JsonParser;
 
 public class JsonFormattingUtilities {
 
-	public static void prettyPrintJson(String jsonString) {
-		System.out.println(JsonFormattingUtilities.formatJsonString(jsonString));
+	public static void prettyPrintJson(final String jsonString) {
+		System.out
+				.println(JsonFormattingUtilities.formatJsonString(jsonString));
 	}
 
-	public static String formatJsonString(String jsonString) {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		JsonParser parser = new JsonParser();
-		JsonElement element = parser.parse(jsonString);
+	public static String formatJsonString(final String jsonString) {
+		final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		final JsonParser parser = new JsonParser();
+		final JsonElement element = parser.parse(jsonString);
 		return gson.toJson(element);
 	}
 

@@ -1,21 +1,19 @@
 package com.happyfuncode.giantbomb;
 
 import org.junit.Test;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 
 import com.happyfuncode.giantbomb.util.Constants;
 import com.happyfuncode.giantbomb.util.JsonFormattingUtilities;
+import com.happyfuncode.giantbomb.util.RequestUtilities;
 
 public class GameAPITest {
+	private final int GAME_ID = 16140;
+
 	@Test
 	public void testGetGame() {
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<String> result = restTemplate.exchange(
-				"http://api.giantbomb.com/game/16140/?api_key="
-						+ Constants.API_KEY + "&format=json", HttpMethod.GET,
-				null, String.class);
-		JsonFormattingUtilities.prettyPrintJson(result.getBody());
+		final String url = "http://api.giantbomb.com/game/" + GAME_ID + "/?api_key="
+				+ Constants.API_KEY + "&format=json";
+		JsonFormattingUtilities.prettyPrintJson(RequestUtilities
+				.performGetRequest(url));
 	}
 }

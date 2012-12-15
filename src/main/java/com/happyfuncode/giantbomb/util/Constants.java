@@ -8,8 +8,8 @@ public class Constants {
 
 	public static final String API_KEY = Constants.loadAPIKey();
 
-	public static String loadAPIKey() {
-		Properties properties = new Properties();
+	public final static String loadAPIKey() {
+		final Properties properties = new Properties();
 		InputStream is = null;
 		try {
 			is = Constants.class.getClassLoader().getResourceAsStream(
